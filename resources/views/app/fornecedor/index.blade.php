@@ -23,14 +23,19 @@
 @endphp
 
 @isset($fornecedores)
-    Fornecedor: {{ $fornecedores[0]['nome'] }}
+
+    @for($i = 0; isset($fornecedores[$i]); $i++)
+    Fornecedor: {{ $fornecedores[$i]['nome'] }}
     <br>
-    Status: {{ $fornecedores[0]['status'] }}
+    Status: {{ $fornecedores[$i]['status'] }}
     <br>
-    CNPJ: {{ $fornecedores[0]['cnpj'] ?? '' }}
+    CNPJ: {{ $fornecedores[$i]['cnpj'] ?? '' }}
     <br>
-    Telefone: ({{ $fornecedores[0]['ddd'] ?? '' }}) {{ $fornecedores[0]['telefone'] ?? '' }}
-    @switch($fornecedores[0]['ddd'])
+    Telefone: ({{ $fornecedores[$i]['ddd'] ?? '' }}) {{ $fornecedores[$i]['telefone'] ?? '' }}
+    <hr>
+@endfor
+@endisset
+  {{--   @switch($fornecedores[0]['ddd'])
 
         @case ('11')
             São Paulo - SP
@@ -43,12 +48,13 @@
         @break
         @default
         Estado não identificado
-    @endswitch
+    @endswitch --}}
 
     <!--
         $variável testada não estiver definida (isset)
         ou
         $variável testada possuir o valor null
     -->
-@endisset
+
+
 
