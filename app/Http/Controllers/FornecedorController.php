@@ -31,7 +31,7 @@ class FornecedorController extends Controller
         ]                  
         ];
 
-        $fornecedores = [];
+        
 
 
        /*  condicao ? se verdadeiro : se falso;
