@@ -15,6 +15,7 @@ class CreateFornecedoresTable extends Migration
     {
         Schema::create('fornecedores', function (Blueprint $table) {
             $table->id();
+            $table->string('nome', 50);
             $table->timestamps();
         });
     }
