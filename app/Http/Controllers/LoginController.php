@@ -60,9 +60,9 @@ class LoginController extends Controller
         } else {
             return redirect()->route('site.login', ['erro' => 1]);
         }
+    }
 
-
-        
-
+    public function sair(){
+        echo 'Sair';
     }
 }
