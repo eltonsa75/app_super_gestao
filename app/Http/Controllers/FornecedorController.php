@@ -19,7 +19,7 @@ class FornecedorController extends Controller
         ->where('email', 'like', '%'.$request->input('email').'%')
         ->get();
         
-        dd($fornecedores);
+        
         return view('app.fornecedor.listar',['fornecedores' => $fornecedores]);
     }
 
