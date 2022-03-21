@@ -7,18 +7,26 @@ use App\Fornecedor;
 
 class FornecedorController extends Controller
 {
-    public function index(){
+    public function index() {
         return view('app.fornecedor.index');
     }
 
+    public function listar(Request $request) {
 
-    public function listar(){
-        return view('app.fornecedor.listar');
+        $fornecedores = Fornecedor::where('nome', 'like', '%'.$request->input('nome').'%')
+        ->where('site', 'like', '%'.$request->input('site').'%')
+        ->where('uf', 'like', '%'.$request->input('uf').'%')
+        ->where('email', 'like', '%'.$request->input('email').'%')
+        ->get();
+        
+        dd($fornecedores);
+        return view('app.fornecedor.listar',['fornecedores' => $fornecedores]);
     }
+
+
     public function adicionar(Request $request){
 
             $msg= '';
-
 
         if($request->input('_token') != ''){
             // validação
