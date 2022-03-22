@@ -20,7 +20,7 @@ class FornecedorController extends Controller
         ->paginate(2);
         
         
-        return view('app.fornecedor.listar',['fornecedores' => $fornecedores]);
+        return view('app.fornecedor.listar',['fornecedores' => $fornecedores, 'request' => $request->all() ]);
     }
 
 
