@@ -20,3 +20,15 @@ Como combinar os frameworks VueJS e Laravel
 Como combinar o Laravel com o banco de dados Redis para armazenamento de dados em memória (cache)
 Como desenvolver projetos web de forma rápida e estruturada
 
+
+=============================================================================================================
+
+Controller
+
+index() => Exibir lista de registros
+create() => Exibir formulário de criação do registro
+store() => Receber formulário de criação do registro
+show() => Exibir registro especifico
+edit() => Exibir formulário de edição do registro
+update() => Receber formulário de ediçao do registro
+destroy() => Receber dados para remoção d registro
