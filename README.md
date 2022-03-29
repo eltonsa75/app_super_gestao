@@ -32,3 +32,5 @@ show() => Exibir registro especifico
 edit() => Exibir formulário de edição do registro
 update() => Receber formulário de ediçao do registro
 destroy() => Receber dados para remoção d registro
+
+php artisan make:controller --resource ProdutoController --model=Produto
