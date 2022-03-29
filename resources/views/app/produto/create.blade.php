@@ -20,26 +20,26 @@
         <div class="informacao-pagina">
      
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                <form method="post" action="">
+                <form method="post" action="{{ route('produto.store') }}">
                     
                 @csrf
-                    <input type="text" name="nome" value="" placeholder="Nome" class="borda-preta">
-                   
+                    <input type="text" name="nome" value="{{ old('nome') }}" placeholder="Nome" class="borda-preta">
+                    {{ $errors->has('nome') ? $errors->first('nome') : ''}}
 
-                    <input type="text" name="descricao" value="" placeholder="Descrição" class="borda-preta">
-                    
+                    <input type="text" name="descricao" value="{{ old('descricao') }}" placeholder="Descrição" class="borda-preta">
+                    {{ $errors->has('descricao') ? $errors->first('descricao') : ''}}
 
-                    <input type="text" name="peso" value="" placeholder="Peso" class="borda-preta">
-                    
+                    <input type="text" name="peso" value="{{ old('peso') }}" placeholder="Peso" class="borda-preta">
+                    {{ $errors->has('peso') ? $errors->first('peso') : ''}}
 
                     <select name="unidade_id">
                     <option>-- Selecione a Unidade de Medida --</option>
 
                     @foreach ($unidades as $unidade)
-                    <option value="{{ $unidade->id }}">{{ $unidade->descricao }}Unidade</option>
+                    <option value="{{ $unidade->id }}" {{ old('unidade_id') == $unidade->id ? 'selected' : '' }}>{{ $unidade->descricao }}Unidade</option>
                     @endforeach
                     </select>
-                    
+                    {{ $errors->has('unidade_id') ? $errors->first('unidade_id') : ''}}
 
                     <button type="submit" class="borda-preta">Cadastrar</button>                   
                 </form>
