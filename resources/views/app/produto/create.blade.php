@@ -12,7 +12,7 @@
 
         <div class="menu">
             <ul>
-                <li><a href="">Novo</a></li>
+                <li><a href="{{ route('produto.index') }}">Voltar</a></li>
                 <li><a href="">Consulta</a></li>
             </ul>
         </div>
@@ -35,8 +35,9 @@
                     <select name="unidade_id">
                     <option>-- Selecione a Unidade de Medida --</option>
 
-                    <option value="1">Unidade</option>
-
+                    @foreach ($unidades as $unidade)
+                    <option value="{{ $unidade->id }}">{{ $unidade->descricao }}Unidade</option>
+                    @endforeach
                     </select>
                     
 
