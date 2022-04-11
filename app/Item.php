@@ -12,7 +12,9 @@ class Item extends Model
 
  public function itemDetalhe() {
      return $this->hasOne('App\ItemDetalhe', 'produto_id', 'id');
+ }
 
-     //fk item_id
+ public function fornecedor(){
+     return $this->belongsTo('App\Fornecedor');
  }
 }
