@@ -46,11 +46,13 @@ class ClienteController extends Controller
             'nome.max' => 'O campo nome deve ter no máximo 40 caracteres'
         ];
 
-        $request->validate($regras, $feddback);
+        $request->validate($regras, $feedback);
 
         $cliente = new Cliente();
         $cliente->nome = $request->get('nome');
         $cliente->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**
