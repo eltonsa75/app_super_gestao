@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Item extends Model
 {
 
@@ -16,5 +17,14 @@ class Item extends Model
 
  public function fornecedor(){
      return $this->belongsTo('App\Fornecedor');
+ }
+
+ public function pedidos(){
+     return $this->belongsToMany('App\Pedido', 'pedidos_produtos','produto_id','pedido_id');
+
+     /* 
+        3 - Representa o nome da FK da tabela mapeada pelo model na tabela de relacionamento
+        4- Representa o nome da FK da tabela mapeada pelo model utilizado no relacionamento que estamos implementando
+     */
  }
 }
