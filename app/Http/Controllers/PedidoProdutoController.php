@@ -27,6 +27,7 @@ class PedidoProdutoController extends Controller
     public function create(Pedido $pedido)
     {
         $produtos = Produto::all();
+        $pedido->produto; //eager loading
         return view('app.pedido_produto.create', ['pedido' =>$pedido, 'produtos' => $produtos]);
     }
 
