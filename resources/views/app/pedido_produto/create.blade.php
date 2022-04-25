@@ -28,6 +28,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome do produto</th>
+                        <th>Data de inclusão do item no pedido</th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -35,10 +36,14 @@
                     <tr>
                         <td>{{ $produto->id }}</td>
                         <td>{{ $produto->nome }}</td>
+                        <td>{{ $produto->pivot->created_at }}</td>
                     </tr>
                     @endforeach
                 </tbody>
                 </table>
+
+                {{ $pedido }}
+
                 @component('app.pedido_produto._components.form_create', ['pedido' => $pedido, 'produtos' => $produtos])
                 @endcomponent
             </div>
