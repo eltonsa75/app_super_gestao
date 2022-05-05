@@ -53,10 +53,28 @@ class PedidoProdutoController extends Controller
         $request->validate($regras, $feedback);
         echo $pedido->id.' - '.$request->get('produto_id');
 
+      /*
         $pedidoProduto = new PedidoProduto();
         $pedidoProduto->pedido_id = $pedido->id;
         $pedidoProduto->produto_id = $request->get('produto_id');
+        $pedidoProduto->quantidade = $request->get('quantidade');
         $pedidoProduto->save();
+    */
+
+        //$pedido->produtos //os registros do relacionamento
+
+      /*   $pedido->produtos()->attach(
+            $request->get('produto_id'),
+             ['quantidade' => $request->get('quantidade'),
+             'coluna_1' => '',
+             'coluna_2' => ''
+            ]
+        ); */
+
+        $pedido->produtos()->attach($request->get('produto_id'),
+        ['quantidade' => $request->get('quantidade')]); //objeto produto, quantidade
+
+
 
         return redirect()->route('pedido-produto.create', ['pedido' => $pedido->id]);
 
@@ -102,8 +120,10 @@ class PedidoProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pedido $pedido, Produto $produto)
     {
-        //
+        print_r($pedido->getAttributes());
+        echo '<hr>';
+        print_r($produto->getAttributes());
     }
 }

@@ -3,10 +3,10 @@
 @section('titulo', 'Pedido Produto')
 
 @section('conteudo')
-    
+
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p> Adicionar - Produto ao Pedido</p>  
+            <p> Adicionar - Produto ao Pedido</p>
         </div>
 
         <div class="menu">
@@ -16,7 +16,7 @@
             </ul>
         </div>
 
-      <div class="informacao-pagina">     
+      <div class="informacao-pagina">
             <h4>Detalhes do pedido</h4>
             <p>ID do pedido: {{ $pedido->id }}</p>
             <p>Cliente: {{ $pedido->cliente_id }}</p>
@@ -29,14 +29,22 @@
                         <th>ID</th>
                         <th>Nome do produto</th>
                         <th>Data de inclusão do item no pedido</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody> 
+                <tbody>
                     @foreach($pedido->produtos as $produto)
                     <tr>
                         <td>{{ $produto->id }}</td>
                         <td>{{ $produto->nome }}</td>
                         <td>{{ $produto->pivot->created_at->format('d/m/Y') }}</td>
+                        <td>
+                            <form id="form_{{ $pedido->id }}_{{$produto->id}}" method="post" action="{{ route('pedido-produto.destroy', ['pedido' => $pedido, 'produto' => $produto->id])}}">
+                            @method('DELETE')
+                            @csrf
+                            <a href="#" onclick="document.getElementById('form_{{ $pedido->id }}_{{$produto->id}}').submit()">Excluir</a>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
