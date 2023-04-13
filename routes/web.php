@@ -26,7 +26,7 @@ Route::get('/login/{erro?}', 'LoginController@index')->name('site.login');
 Route::post('/login', 'LoginController@autenticar')->name('site.login');
 
 // Agrupamento de rotas
-Route::middleware('autenticacao:padrao')->prefix('/app')->group(function() {
+    Route::middleware('autenticacao:padrao')->prefix('/app')->group(function() {
     Route::get('/home', 'HomeController@index')->name('app.home');
     Route::get('/sair', 'LoginController@sair')->name('app.sair');
 
