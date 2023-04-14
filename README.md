@@ -1,3 +1,13 @@
+Configuração do Ambiente
+
+Banco de dados Mysql
+Rodas as migrate
+rodar a class MotivoContatoSeeder
+comando = php artisan db:seed --class=MotivoContatoSeeder
+
+
+
+
 Desenvolvimento Web Avançado 2022 com PHP, Laravel e Vue.JS
 
 Configurar o ambiente de desenvolvimento nos sistemas operacionais Windows, Linux Ubuntu e OSX.
